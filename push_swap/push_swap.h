@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:05:59 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/07/28 17:34:36 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/07/28 23:00:42 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,18 @@ t_list				*ft_lstnew(int content);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				print_stack(t_list *stack);
 int					has_duplicates(t_list *stack);
-void small_sort(t_list **stack_a, t_list **stack_b);
+void				small_sort(t_list **stack_a, t_list **stack_b);
 int					is_sorted(t_list *stack);
 void				ra(t_list **stack);
 void				rra(t_list **stack);
 void				sa(t_list **stack);
-void pa(t_list **stack_a, t_list **stack_b);
-void pb(t_list **stack_a, t_list **stack_b);
-void sb(t_list **stack);
-void ss(t_list **stack_a, t_list **stack_b);
-void rb(t_list **stack);
-void rr(t_list **stack_a, t_list **stack_b);
-void rrb(t_list **stack);
-void rrr(t_list **stack_a, t_list **stack_b);
+void				pa(t_list **stack_a, t_list **stack_b);
+void				pb(t_list **stack_a, t_list **stack_b);
+void				sb(t_list **stack);
+void				ss(t_list **stack_a, t_list **stack_b);
+void				rb(t_list **stack);
+void				rr(t_list **stack_a, t_list **stack_b);
+void				rrb(t_list **stack);
+void				rrr(t_list **stack_a, t_list **stack_b);
 
 #endif

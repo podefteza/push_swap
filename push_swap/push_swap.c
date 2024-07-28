@@ -93,15 +93,15 @@ int main(int argc, char **argv)
         return (0);
     }
     stack_size = ft_lstsize(stack_a);
-    if (stack_size <= 50) // change to 5
+    if (stack_size <= 5)
         small_sort(&stack_a, &stack_b);
 
-    /* REMOVE LATER*/
+    /* REMOVE LATER
 	printf("----------\n");
     printf("Stack A:\n");
     print_stack(stack_a);
 	printf("----------\n");
-    printf("Size of stack: %d\n", stack_size);
+    printf("Size of stack: %d\n", stack_size);*/
 
     return (0);
 }
