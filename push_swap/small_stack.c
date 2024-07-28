@@ -6,151 +6,82 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 12:00:19 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/07/27 12:56:27 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/07/28 16:42:07 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int largest_index(t_list *stack)
+// Find the index of the smallest element
+static int smallest_index(t_list *stack)
 {
-    int i;
-
-    if (stack == NULL)
-        return (0); // Handle empty stack
-    i = *(int *)stack->content; // Assuming content is an integer
+    int min = *(int *)stack->content;
     while (stack)
     {
-        if (*(int *)stack->content > i)
-            i = *(int *)stack->content;
+        if (*(int *)stack->content < min)
+            min = *(int *)stack->content;
         stack = stack->next;
     }
-    return (i);
+    return min;
 }
 
-
-// Function to check if the stack is sorted
-static int is_sorted(t_list *stack)
+void small_sort(t_list **stack_a, t_list **stack_b)
 {
-    while (stack && stack->next)
-    {
-        if (*(int *)stack->content > *(int *)stack->next->content)
-            return (0);
-        stack = stack->next;
-    }
-    return (1);
-}
-
-
-// Rotate the stack up by 1
-void ra(t_list **stack)
-{
-    if (*stack && (*stack)->next)
-    {
-        t_list *first;
-        t_list *last;
-
-        first = *stack;
-        last = ft_lstlast(*stack);
-        *stack = (*stack)->next;
-        last->next = first;
-        first->next = NULL;
-        write(1, "ra\n", 3);
-    }
-}
-
-
-// Reverse rotate the stack down by 1
-void rra(t_list **stack)
-{
-    if (*stack && (*stack)->next)
-    {
-        t_list *second_last;
-        t_list *last;
-
-        second_last = NULL;
-        last = *stack;
-        while (last->next)
-        {
-            second_last = last;
-            last = last->next;
-        }
-        second_last->next = NULL;
-        last->next = *stack;
-        *stack = last;
-        write(1, "rra\n", 4);
-    }
-}
-
-
-// Swap the first two elements in the stack
-void sa(t_list **stack)
-{
-    t_list *first;
-    t_list *second;
-
-    if (*stack && (*stack)->next)
-    {
-        first = *stack;
-        second = (*stack)->next;
-        first->next = second->next;
-        second->next = first;
-        *stack = second;
-        write(1, "sa\n", 3);
-    }
-}
-
-// Main function to sort small stacks
-void small_sort(t_list **stack)
-{
-    int count;
-    int largest;
-
-    if (*stack == NULL || is_sorted(*stack))
+    int count = ft_lstsize(*stack_a);
+    if (count <= 1 || is_sorted(*stack_a))
         return;
-
-    count = ft_lstsize(*stack);
-    largest = largest_index(*stack);
 
     if (count == 2)
     {
-        if (*(int *)(*stack)->content > *(int *)(*stack)->next->content)
-            sa(stack);
+        if (*(int *)(*stack_a)->content > *(int *)(*stack_a)->next->content)
+            sa(stack_a);
     }
     else if (count == 3)
     {
-        // Rotate until the smallest value is on top
-        if (*(int *)(*stack)->content > *(int *)(*stack)->next->content
-            && *(int *)(*stack)->content > *(int *)(*stack)->next->next->content)
-            ra(stack);
-        if (*(int *)(*stack)->content > *(int *)(*stack)->next->content)
-            sa(stack);
-        if (*(int *)(*stack)->next->content > *(int *)(*stack)->next->next->content)
-            rra(stack);
+        int a = *(int *)(*stack_a)->content;
+        int b = *(int *)(*stack_a)->next->content;
+        int c = *(int *)(*stack_a)->next->next->content;
+
+        if (a > b && b < c && a < c)
+            sa(stack_a);
+        else if (a > b && b > c && a > c)
+        {
+            sa(stack_a);
+            rra(stack_a);
+        }
+        else if (a > b && b < c && a > c)
+            ra(stack_a);
+        else if (a < b && b > c && a < c)
+        {
+            sa(stack_a);
+            ra(stack_a);
+        }
+        else if (a < b && b > c && a > c)
+            rra(stack_a);
     }
-    else if (count == 4)
+    else if (count >= 4)
     {
-        // Move largest to the bottom
-        while (*(int *)(*stack)->content != largest)
-            ra(stack);
-        // Sort the remaining 3 elements
-        small_sort(stack);
-        // Restore stack and sort again if needed
-        rra(stack);
-    }
-    else if (count == 5)
-    {
-        // Move largest to the bottom
-        while (*(int *)(*stack)->content != largest)
-            ra(stack);
-        // Sort the remaining 4 elements
-        small_sort(stack);
-        // Restore stack and sort again if needed
-        rra(stack);
+        // Rotate the smallest element to the top
+        int smallest = smallest_index(*stack_a);
+        while (*(int *)(*stack_a)->content != smallest)
+            ra(stack_a);
+
+        // Push the smallest element to stack B
+        pb(stack_a, stack_b);
+
+        // Recursively sort the remaining elements
+        small_sort(stack_a, stack_b);
+
+        // Push the smallest element back to stack A
+        pa(stack_a, stack_b);
+
+        // If the stack has more elements, ensure the smallest element stays at the top
+        if (count == 5)
+        {
+            // Rotate to move the next smallest to the top, if needed
+            smallest = smallest_index(*stack_a);
+            while (*(int *)(*stack_a)->content != smallest)
+                ra(stack_a);
+        }
     }
 }
-
-
-
-
-
