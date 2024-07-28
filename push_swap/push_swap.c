@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:06:10 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/07/28 16:53:00 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/07/28 17:49:36 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,15 +93,15 @@ int main(int argc, char **argv)
         return (0);
     }
     stack_size = ft_lstsize(stack_a);
-    if (stack_size <= 5)
+    if (stack_size <= 50) // change to 5
         small_sort(&stack_a, &stack_b);
 
-    /* REMOVE LATER
+    /* REMOVE LATER*/
 	printf("----------\n");
     printf("Stack A:\n");
     print_stack(stack_a);
 	printf("----------\n");
-    printf("Size of stack: %d\n", stack_size);*/
+    printf("Size of stack: %d\n", stack_size);
 
     return (0);
 }
