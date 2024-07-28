@@ -6,7 +6,7 @@
 #    By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/25 16:17:04 by carlos-j          #+#    #+#              #
-#    Updated: 2024/07/25 20:56:53 by carlos-j         ###   ########.fr        #
+#    Updated: 2024/07/27 12:18:06 by carlos-j         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRCS = push_swap.c \
        utils/ft_substr.c \
        checker.c \
        print_stack.c \
-       exit.c
+       exit.c \
+	   small_stack.c
 
 OBJS = ${SRCS:.c=.o}
 

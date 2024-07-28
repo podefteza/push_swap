@@ -42,11 +42,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub[i] = '\0';
 	return (sub);
 }
-/* remove comment to test...
-int	main(void)
-{
-	char s[] = "42 Porto, Portugal";
-	int start = 3;
-	size_t len = 5;
-	printf("%s\n", ft_substr(s, start, len));
-}*/

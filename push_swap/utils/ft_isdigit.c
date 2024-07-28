@@ -24,14 +24,3 @@ int	ft_isdigit(int c)
 		return (1);
 	return (0);
 }
-/* remove comment to test...
-int	main(void)
-{
-	printf("%d\n", ft_isdigit('0'));
-	printf("%d\n", ft_isdigit('9'));
-	printf("%d\n", ft_isdigit('k'));
-	printf("%d\n", ft_isdigit('Y'));
-	printf("%d\n", ft_isdigit('#'));
-	printf("%d\n", ft_isdigit('4'));
-	printf("%d\n", ft_isdigit('2'));
-} */

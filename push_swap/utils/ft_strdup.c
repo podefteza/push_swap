@@ -34,9 +34,3 @@ char	*ft_strdup(const char *s)
 	dest[i] = '\0';
 	return (dest);
 }
-/* remove comment to test...
-int	main(void)
-{
-	printf("%s\n", ft_strdup("duplicate string"));
-	return (0);
-}*/

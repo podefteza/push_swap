@@ -26,14 +26,3 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (size);
 }
-/*
-int	main(void)
-{
-	t_list *list = NULL;
-
-	ft_lstadd_front(&list, ft_lstnew("42"));
-	ft_lstadd_front(&list, ft_lstnew("Porto"));
-	ft_lstadd_front(&list, ft_lstnew("Portugal"));
-	printf("%d\n", ft_lstsize(list));
-	return (0);
-}*/

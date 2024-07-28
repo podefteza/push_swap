@@ -23,11 +23,3 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-/* remove comment to test...
-int	main(void)
-{
-	char	str[] = "42 Porto";
-
-	printf("Number of characters in '%s': %ld\n", str, ft_strlen(str));
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 13:12:55 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/07/25 20:51:57 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/07/27 11:45:53 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ t_list	*ft_lstnew(int content)
 	new_node = (t_list *)malloc(sizeof(t_list));
 	if (!new_node)
 		return (NULL);
-	new_node->content = malloc(sizeof(int)); // Allocate memory for the integer
+	new_node->content = malloc(sizeof(int));
 	if (!new_node->content)
 	{
 		free(new_node);
 		return (NULL);
 	}
-	*(int *)(new_node->content) = content; // Set the integer value
+	*(int *)(new_node->content) = content;
 	new_node->next = NULL;
 	return (new_node);
 }

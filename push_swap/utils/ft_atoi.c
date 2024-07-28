@@ -36,31 +36,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (digit * signal);
 }
-/* remove comment to test...
-int	main(void)
-{
-	char	*nptr1 = "421337";
-	printf("%d\n", ft_atoi(nptr1));
-	char	*nptr2 = "-0";
-	printf("%d\n", ft_atoi(nptr2));
-	char	*nptr3 = "-42";
-	printf("%d\n", ft_atoi(nptr3));
-	char	*nptr4 = "+42";
-	printf("%d\n", ft_atoi(nptr4));
-	char	*nptr5 = "+++---++351Porto42";
-	printf("%d\n", ft_atoi(nptr5));
-	char	*nptr6 = "-2147483648";
-	printf("%d\n", ft_atoi(nptr6));
-	char	*nptr7 = "2147483647";
-	printf("%d\n", ft_atoi(nptr7));
-}*/
-/*
-======= Exemple for the number 421337 =======
-
-digit = 0 * 10 + 52 - 48 = 4
-digit = 4 * 10 + 50 - 48 = 42
-digit = 42 * 10 + 49 - 48 = 421
-digit = 421 * 10 + 51 - 48 = 4213
-digit = 4213 * 10 + 51 - 48 = 42133
-digit = 42133 * 10 + 55 - 48 = 421337
-*/

@@ -23,20 +23,3 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	else
 		*lst = new;
 }
-/*
-int	main(void)
-{
-	t_list *list = NULL;
-
-	ft_lstadd_back(&list, ft_lstnew("42"));
-	ft_lstadd_back(&list, ft_lstnew("Porto"));
-	ft_lstadd_back(&list, ft_lstnew("Portugal"));
-
-	while (list)
-	{
-		printf("%s -> ", (char *)list->content);
-		list = list->next;
-	}
-	printf("NULL\n");
-	return (0);
-}*/

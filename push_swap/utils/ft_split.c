@@ -101,17 +101,3 @@ char	**ft_split(char const *s, char c)
 	split[j] = NULL;
 	return (split);
 }
-/*
-int	main(void)
-{
-	char	s[] = "42 Porto Portugal";
-	char	c = ' ';
-	char	**split = ft_split(s, c);
-	int		i = 0;
-	while (split[i])
-	{
-		printf("%s\n", split[i]);
-		i++;
-	}
-	return (0);
-}*/
