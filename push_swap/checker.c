@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:31:48 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/07/27 10:58:44 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/06 12:35:44 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,25 @@ int	checker(char *arg)
 	return (has_digit);
 }
 
-int	has_duplicates(t_list *stack)
+int has_duplicates(t_list *stack)
 {
-	t_list	*current;
-	t_list	*runner;
+    t_list *current;
+    t_list *runner;
 
-	current = stack;
-	while (current)
-	{
-		runner = current->next;
-		while (runner)
-		{
-			if (*(int *)(current->content) == *(int *)(runner->content))
-				return (1);
-			runner = runner->next;
-		}
-		current = current->next;
-	}
-	return (0);
+    if (!stack)
+        return (0);
+
+    current = stack;
+    while (current)
+    {
+        runner = current->next;
+        while (runner)
+        {
+            if (current->value == runner->value)
+                return (1);
+            runner = runner->next;
+        }
+        current = current->next;
+    }
+    return (0);
 }

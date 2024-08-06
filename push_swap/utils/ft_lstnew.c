@@ -6,30 +6,29 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 13:12:55 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/07/27 11:45:53 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/06 12:53:22 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Allocates (with malloc(3)) and returns a new node. The member variable
-’content’ is initialized with the value of the parameter ’content’. The
+’value’ is initialized with the value of the parameter ’value’. The
 variable ’next’ is initialized to NULL.*/
 
 #include "../push_swap.h"
 
-t_list	*ft_lstnew(int content)
+t_list *ft_lstnew(void *content)
 {
-	t_list	*new_node;
+    t_list *new;
+    int *int_content;
 
-	new_node = (t_list *)malloc(sizeof(t_list));
-	if (!new_node)
-		return (NULL);
-	new_node->content = malloc(sizeof(int));
-	if (!new_node->content)
-	{
-		free(new_node);
-		return (NULL);
-	}
-	*(int *)(new_node->content) = content;
-	new_node->next = NULL;
-	return (new_node);
+    new = (t_list *)malloc(sizeof(t_list));
+    if (!new)
+        return (NULL);
+
+    int_content = (int *)content;
+    new->value = *int_content;
+    new->index = 0;
+    new->next = NULL;
+    return (new);
 }
+

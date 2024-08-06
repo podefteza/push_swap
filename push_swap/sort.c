@@ -1,22 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 11:46:02 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/06 13:11:25 by carlos-j         ###   ########.fr       */
+/*   Created: 2024/07/29 13:14:38 by carlos-j          #+#    #+#             */
+/*   Updated: 2024/08/06 13:27:37 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Prints the stack. For testing purposes...
-void print_stack(t_list *stack) {
-    while (stack) {
-        printf("%d ", stack->value);
-        stack = stack->next;
-    }
-    printf("\n");
-}
+void	sort(t_list **stack_a, t_list **stack_b);

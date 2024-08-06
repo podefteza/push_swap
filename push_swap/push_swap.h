@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:05:59 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/07/28 23:00:42 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:19:41 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 
 typedef struct s_list
 {
-	void			*content;
+	int				value;
+	int				index;
 	struct s_list	*next;
 }					t_list;
 
@@ -35,12 +36,16 @@ int					checker(char *arg);
 void				free_args(char **args);
 void				error(t_list **stack_a, t_list **stack_b, char **args);
 void				free_stack(t_list **stack);
-t_list				*ft_lstnew(int content);
+t_list				*ft_lstnew(void *content);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				print_stack(t_list *stack);
 int					has_duplicates(t_list *stack);
 void				small_sort(t_list **stack_a, t_list **stack_b);
-int					is_sorted(t_list *stack);
+int					is_sorted(t_list **stack);
+int					handle_single_argument(char *arg, t_list **stack_a,
+						t_list **stack_b);
+int					handle_multiple_arguments(int argc, char **argv,
+						t_list **stack_a, t_list **stack_b);
 void				ra(t_list **stack);
 void				rra(t_list **stack);
 void				sa(t_list **stack);
@@ -52,5 +57,10 @@ void				rb(t_list **stack);
 void				rr(t_list **stack_a, t_list **stack_b);
 void				rrb(t_list **stack);
 void				rrr(t_list **stack_a, t_list **stack_b);
+int					find_min(t_list *stack);
+int					find_max(t_list *stack);
+void				free_list(t_list **list);
+void				sort(t_list **stack_a, t_list **stack_b);
+void				initialize_indices(t_list *stack);
 
 #endif

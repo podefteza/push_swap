@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:13:10 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/07/27 11:40:07 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/06 12:39:07 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,3 +48,18 @@ void	error(t_list **stack_a, t_list **stack_b, char **args)
 	write(2, "Error\n", 6);
 	exit(1);
 }
+void free_list(t_list **list)
+{
+    t_list *current;
+    t_list *next;
+
+    current = *list;
+    while (current)
+    {
+        next = current->next;
+        free(current);
+        current = next;
+    }
+    *list = NULL;
+}
+
