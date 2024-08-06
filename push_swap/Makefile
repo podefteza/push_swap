@@ -43,20 +43,23 @@ NAME = push_swap
 
 all: ${NAME}
 
+GREEN = \033[0;32m
+RESET = \033[0m
+
 ${NAME}: ${OBJS}
 	$(CC) ${CFLAGS} ${OBJS} -o ${NAME}
-	@echo "Compilation successful."
+	@echo "$(GREEN)Compilation successful.$(RESET)"
 
 clean:
 	@rm -f ${OBJS}
-	@echo "Object files removed."
+	@echo "$(GREEN)Object files removed.$(RESET)"
 
 fclean: clean
 	@rm -f ${NAME}
-	@echo "Executable removed."
+	@echo "$(GREEN)Executable removed.$(RESET)"
 
 re: fclean all
-	@echo "Recompiled all files."
+	@echo "$(GREEN)Recompiled all files.$(RESET)"
 
 .PHONY: all clean fclean re
 
