@@ -6,7 +6,7 @@
 #    By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/25 16:17:04 by carlos-j          #+#    #+#              #
-#    Updated: 2024/08/03 16:18:50 by carlos-j         ###   ########.fr        #
+#    Updated: 2024/08/07 12:40:23 by carlos-j         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,23 +43,20 @@ NAME = push_swap
 
 all: ${NAME}
 
-GREEN = \033[0;32m
-RESET = \033[0m
-
 ${NAME}: ${OBJS}
 	$(CC) ${CFLAGS} ${OBJS} -o ${NAME}
-	@echo "$(GREEN)Compilation successful.$(RESET)"
+	@echo "Compilation successful."
 
 clean:
 	@rm -f ${OBJS}
-	@echo "$(GREEN)Object files removed.$(RESET)"
+	@echo "Object files removed."
 
 fclean: clean
 	@rm -f ${NAME}
-	@echo "$(GREEN)Executable removed.$(RESET)"
+	@echo "Executable removed."
 
 re: fclean all
-	@echo "$(GREEN)Recompiled all files.$(RESET)"
+	@echo "Recompiled all files."
 
 .PHONY: all clean fclean re
 

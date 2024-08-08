@@ -6,12 +6,11 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:40:44 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/03 16:15:02 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/08 10:32:08 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
 
 int handle_single_argument(char *arg, t_list **stack_a, t_list **stack_b)
 {
@@ -22,23 +21,32 @@ int handle_single_argument(char *arg, t_list **stack_a, t_list **stack_b)
 
     split_args = ft_split(arg, ' ');
     if (!split_args)
-        return (0);
+        return (0); // Error handling
+
     i = 0;
     while (split_args[i])
     {
         if (!checker(split_args[i]))
-            error(stack_a, stack_b, split_args);
+        {
+            free_args(split_args);
+            error(stack_a, stack_b, NULL);
+        }
         content = (int *)malloc(sizeof(int));
         if (!content)
-            error(stack_a, stack_b, split_args);
-        *content = ft_atoi(split_args[i++]);
+        {
+            free_args(split_args);
+            error(stack_a, stack_b, NULL);
+        }
+        *content = ft_atoi(split_args[i]);
         new_node = ft_lstnew(content);
         if (!new_node)
         {
             free(content);
-            error(stack_a, stack_b, split_args);
+            free_args(split_args);
+            error(stack_a, stack_b, NULL);
         }
         ft_lstadd_back(stack_a, new_node);
+        i++;
     }
     free_args(split_args);
     return (1);
@@ -58,7 +66,7 @@ int handle_multiple_arguments(int argc, char **argv, t_list **stack_a, t_list **
         content = (int *)malloc(sizeof(int));
         if (!content)
             error(stack_a, stack_b, NULL);
-        *content = ft_atoi(argv[i++]);
+        *content = ft_atoi(argv[i]);
         new_node = ft_lstnew(content);
         if (!new_node)
         {
@@ -66,6 +74,7 @@ int handle_multiple_arguments(int argc, char **argv, t_list **stack_a, t_list **
             error(stack_a, stack_b, NULL);
         }
         ft_lstadd_back(stack_a, new_node);
+        i++;
     }
     return (1);
 }
