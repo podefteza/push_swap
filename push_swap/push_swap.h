@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:05:59 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/08 12:41:26 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/14 14:12:29 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 typedef struct s_list
 {
-	int				value;
+	int				content;
 	int				index;
 	struct s_list	*next;
 }					t_list;

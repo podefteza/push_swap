@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 12:00:19 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/07 13:14:28 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/14 14:20:15 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	get_position(t_list *stack, int value)
 	position = 0;
 	while (stack)
 	{
-		if (stack->value == value)
+		if (stack->content == value)
 			return (position);
 		stack = stack->next;
 		position++;
@@ -29,7 +29,7 @@ static int	get_position(t_list *stack, int value)
 
 static void	sort_two(t_list **stack_a)
 {
-	if ((*stack_a)->value > (*stack_a)->next->value)
+	if ((*stack_a)->content > (*stack_a)->next->content)
 		sa(stack_a);
 }
 
@@ -41,9 +41,9 @@ static void	sort_three(t_list **stack_a)
 
 	if (!*stack_a || !(*stack_a)->next || !(*stack_a)->next->next)
 		return ;
-	a = (*stack_a)->value;
-	b = (*stack_a)->next->value;
-	c = (*stack_a)->next->next->value;
+	a = (*stack_a)->content;
+	b = (*stack_a)->next->content;
+	c = (*stack_a)->next->next->content;
 	if (a > b && b < c && a < c)
 		sa(stack_a);
 	else if (a > b && b > c)
@@ -65,7 +65,6 @@ static void	sort_three(t_list **stack_a)
 void	small_sort(t_list **stack_a, t_list **stack_b)
 {
 	int	count;
-	int	smallest;
 
 	count = ft_lstsize(*stack_a);
 	if (count <= 2 || is_sorted(stack_a))
@@ -76,10 +75,9 @@ void	small_sort(t_list **stack_a, t_list **stack_b)
 	}
 	while (count > 3)
 	{
-		smallest = find_min(*stack_a);
-		while ((*stack_a)->value != smallest)
+		while ((*stack_a)->content != find_min(*stack_a))
 		{
-			if (get_position(*stack_a, smallest) <= count / 2)
+			if (get_position(*stack_a, find_min(*stack_a)) <= count / 2)
 				ra(stack_a);
 			else
 				rra(stack_a);

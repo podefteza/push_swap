@@ -6,47 +6,40 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:31:48 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/08 13:06:41 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/14 14:18:08 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int checker(char *arg)
+int	checker(char *arg)
 {
-    int i = 0;
-    int has_digit = 0;
+	int	i;
+	int	has_digit;
 
-    while (arg[i] == ' ' || arg[i] == '\t')
-        i++;
-
-    if (arg[i] == '\0')  // Empty argument
-        return 0;
-
-    while (arg[i] != '\0')
-    {
-        if (arg[i] == '+' || arg[i] == '-')
-        {
-            if (i > 0 && (arg[i-1] != ' ' && arg[i-1] != '\t')) // Sign not preceded by whitespace
-                return 0;
-            if (arg[i+1] == '\0' || !ft_isdigit(arg[i+1])) // Sign not followed by a digit
-                return 0;
-        }
-        else if (ft_isdigit(arg[i]))
-        {
-            has_digit = 1;
-        }
-        else if (arg[i] != ' ' && arg[i] != '\t')
-        {
-            return 0; // Invalid character
-        }
-        i++;
-    }
-
-    return has_digit;
+	i = 0;
+	has_digit = 0;
+	while (arg[i] == ' ' || arg[i] == '\t')
+		i++;
+	if (arg[i] == '\0')
+		return (0);
+	while (arg[i] != '\0')
+	{
+		if (arg[i] == '+' || arg[i] == '-')
+		{
+			if (i > 0 && (arg[i - 1] != ' ' && arg[i - 1] != '\t'))
+				return (0);
+			if (arg[i + 1] == '\0' || !ft_isdigit(arg[i + 1]))
+				return (0);
+		}
+		else if (ft_isdigit(arg[i]))
+			has_digit = 1;
+		else if (arg[i] != ' ' && arg[i] != '\t')
+			return (0);
+		i++;
+	}
+	return (has_digit);
 }
-
-
 
 int	is_sorted(t_list **stack)
 {
@@ -55,7 +48,7 @@ int	is_sorted(t_list **stack)
 	head = *stack;
 	while (head && head->next)
 	{
-		if (head->value > head->next->value)
+		if (head->content > head->next->content)
 			return (0);
 		head = head->next;
 	}
@@ -75,7 +68,7 @@ int	has_duplicates(t_list *stack)
 		runner = current->next;
 		while (runner)
 		{
-			if (current->value == runner->value)
+			if (current->content == runner->content)
 				return (1);
 			runner = runner->next;
 		}

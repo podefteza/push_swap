@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:46:02 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/07 09:42:25 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/14 14:13:19 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	print_stack(t_list *stack)
 {
 	while (stack)
 	{
-		printf("%d ", stack->value);
+		printf("%d ", stack->content);
 		stack = stack->next;
 	}
 	printf("\n");
