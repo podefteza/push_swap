@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:05:59 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/14 14:12:29 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/19 11:43:23 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ typedef struct s_list
 	int				index;
 	struct s_list	*next;
 }					t_list;
-
-void				assign_indices(t_list *stack);
 
 /*checker.c: functions to verify if the string contains any character besides
 signals (+-), digits and spaces, if it's sorted and if it has duplicate values*/
@@ -49,8 +47,8 @@ void				small_sort(t_list **stack_a, t_list **stack_b);
 /*sort.c: the algorithm to sort more than 5 numbers*/
 void				sort(t_list **stack_a, t_list **stack_b);
 
-/*split_args.c: checks the number of arguments and, if necessary, uses the split
-to separate them and implement the atoi to convert them to ints*/
+/*split_args.c: checks the number of arguments and uses the split to separate
+them and implement the atoi to convert them to ints*/
 int					handle_single_argument(char *arg, t_list **stack_a,
 						t_list **stack_b);
 int					handle_multiple_arguments(int argc, char **argv,
