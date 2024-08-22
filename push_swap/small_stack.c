@@ -6,12 +6,14 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 12:00:19 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/14 14:20:15 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/21 11:14:47 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Finds the position of a given value in the stack.
+	Returns the position if found, otherwise returns -1. */
 static int	get_position(t_list *stack, int value)
 {
 	int	position;
@@ -27,12 +29,14 @@ static int	get_position(t_list *stack, int value)
 	return (-1);
 }
 
+/* Sorts a stack of two elements in ascending order. */
 static void	sort_two(t_list **stack_a)
 {
 	if ((*stack_a)->content > (*stack_a)->next->content)
 		sa(stack_a);
 }
 
+/* Sorts a stack of three elements using a series of swaps and rotations. */
 static void	sort_three(t_list **stack_a)
 {
 	int	a;
@@ -62,6 +66,10 @@ static void	sort_three(t_list **stack_a)
 		rra(stack_a);
 }
 
+/* Sorts a stack with up to 5 elements by:
+	- Sorting stacks with 2 or fewer elements directly.
+	- Moving elements to stack_b and sorting the remaining 3 elements.
+	- Moving elements back from stack_b to stack_a. */
 void	small_sort(t_list **stack_a, t_list **stack_b)
 {
 	int	count;

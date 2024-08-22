@@ -35,6 +35,7 @@ void	rra(t_list **stack)
 }
 
 // rrb (reverse rotate b): Shift down all elements of stack b by 1.
+// this function is implemented but is never used by the algorithm.
 void	rrb(t_list **stack)
 {
 	t_list	*second_last;
@@ -57,6 +58,7 @@ void	rrb(t_list **stack)
 }
 
 // rrr : rra and rrb at the same time.
+// this function is implemented but is never used by the algorithm.
 void	rrr(t_list **stack_a, t_list **stack_b)
 {
 	rra(stack_a);

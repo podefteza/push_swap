@@ -6,12 +6,13 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:10:30 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/14 14:13:14 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/21 11:03:34 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Finds the minimum value in the list. */
 int	find_min(t_list *stack)
 {
 	int	min;
@@ -28,6 +29,7 @@ int	find_min(t_list *stack)
 	return (min);
 }
 
+/* Finds the maximum value in the list. */
 int	find_max(t_list *stack)
 {
 	int	max;

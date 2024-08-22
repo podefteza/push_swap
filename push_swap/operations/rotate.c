@@ -30,6 +30,7 @@ void	ra(t_list **stack)
 }
 
 // rb (rotate b): Shift up all elements of stack b by 1.
+// this function is implemented but is never used by the algorithm.
 void	rb(t_list **stack)
 {
 	t_list	*first;
@@ -47,6 +48,7 @@ void	rb(t_list **stack)
 }
 
 // rr : ra and rb at the same time.
+// this function is implemented but is never used by the algorithm.
 void	rr(t_list **stack_a, t_list **stack_b)
 {
 	ra(stack_a);

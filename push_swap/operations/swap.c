@@ -47,6 +47,7 @@ void	sb(t_list **stack)
 }
 
 // ss : sa and sb at the same time.
+// this function is implemented but is never used by the algorithm.
 void	ss(t_list **stack_a, t_list **stack_b)
 {
 	sa(stack_a);

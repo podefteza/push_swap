@@ -6,14 +6,13 @@
 #    By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/25 16:17:04 by carlos-j          #+#    #+#              #
-#    Updated: 2024/08/07 12:40:23 by carlos-j         ###   ########.fr        #
+#    Updated: 2024/08/21 10:58:03 by carlos-j         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-# REMOVE LATER print_stack.c
 SRCS = push_swap.c \
 		checker.c \
 		print_stack.c \

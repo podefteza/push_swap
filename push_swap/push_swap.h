@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:05:59 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/19 11:43:23 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/21 13:51:39 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_list
 signals (+-), digits and spaces, if it's sorted and if it has duplicate values*/
 int					checker(char *arg);
 int					is_sorted(t_list **stack);
+int					is_descending(t_list **stack);
 int					has_duplicates(t_list *stack);
 
 /*exit.c: displays the Error message and frees the mallocs of args and stack*/
