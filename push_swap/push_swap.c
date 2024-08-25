@@ -6,41 +6,21 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:06:10 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/19 12:33:51 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/25 13:47:05 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_for_spaces(int argc, char **argv, t_list **stack_a,
-		t_list **stack_b)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (i < argc)
-	{
-		j = 0;
-		while (argv[i][j] != '\0')
-		{
-			if (argv[i][j] == ' ')
-				error(stack_a, stack_b, NULL);
-			j++;
-		}
-		i++;
-	}
-}
-
 int	handle_args_allocation(int argc, char **argv, t_list **stack_a,
 		t_list **stack_b)
 {
-	char	**args;
+	char	**stack;
 	int		i;
 	int		success;
 
-	args = malloc((argc + 1) * sizeof(char *));
-	if (!args)
+	stack = malloc((argc + 1) * sizeof(char *));
+	if (!stack)
 	{
 		error(stack_a, stack_b, NULL);
 		return (0);
@@ -50,19 +30,19 @@ int	handle_args_allocation(int argc, char **argv, t_list **stack_a,
 	{
 		if (!checker(argv[i]))
 		{
-			free_args(args);
+			free_args(stack);
 			error(stack_a, stack_b, NULL);
 		}
-		args[i - 1] = ft_strdup(argv[i]);
+		stack[i - 1] = ft_strdup(argv[i]);
 		i++;
 	}
-	args[argc - 1] = NULL;
+	stack[argc - 1] = NULL;
 	success = handle_multiple_arguments(argc, argv, stack_a, stack_b);
-	free_args(args);
+	free_args(stack);
 	return (success);
 }
 
-int	initialize_args(int argc, char **argv, t_list **stack_a, t_list **stack_b)
+int	initialize_stack(int argc, char **argv, t_list **stack_a, t_list **stack_b)
 {
 	int	success;
 
@@ -73,10 +53,7 @@ int	initialize_args(int argc, char **argv, t_list **stack_a, t_list **stack_b)
 		success = handle_single_argument(argv[1], stack_a, stack_b);
 	}
 	else
-	{
-		check_for_spaces(argc, argv, stack_a, stack_b);
 		success = handle_args_allocation(argc, argv, stack_a, stack_b);
-	}
 	return (success);
 }
 
@@ -112,7 +89,7 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a = NULL;
 	stack_b = NULL;
-	success = initialize_args(argc, argv, &stack_a, &stack_b);
+	success = initialize_stack(argc, argv, &stack_a, &stack_b);
 	if (!success || has_duplicates(stack_a))
 		error(&stack_a, &stack_b, NULL);
 	assign_indices(stack_a);
