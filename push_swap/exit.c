@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:13:10 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/21 10:57:30 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/26 13:58:04 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	error(t_list **stack_a, t_list **stack_b, char **args)
 	write(2, "Error\n", 6);
 	exit(1);
 }
+
 
 /* Frees each string in the array with free(args[i]),
 	then frees the array of pointers itself with free(args). */

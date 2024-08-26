@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:05:59 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/25 10:50:38 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/26 13:32:36 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void				free_args(char **args);
 void				free_stack(t_list **stack);
 int					find_min(t_list *stack);
 int					find_max(t_list *stack);
+int					assign_indices(t_list *stack);
 void				small_sort(t_list **stack_a, t_list **stack_b);
 void				sort(t_list **stack_a, t_list **stack_b);
 int					handle_single_argument(char *arg, t_list **stack_a,
@@ -47,6 +48,7 @@ t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *lst);
 char				**ft_split(char const *s, char c);
+char				*ft_strchr(const char *s, int c);
 char				*ft_strdup(const char *s);
 size_t				ft_strlen(const char *s);
 char				*ft_substr(char const *s, unsigned int start, size_t len);

@@ -6,7 +6,7 @@
 #    By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/25 16:17:04 by carlos-j          #+#    #+#              #
-#    Updated: 2024/08/21 10:58:03 by carlos-j         ###   ########.fr        #
+#    Updated: 2024/08/26 13:28:41 by carlos-j         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRCS = push_swap.c \
 			utils/ft_lstlast.c \
 			utils/ft_lstsize.c \
 			utils/ft_split.c \
+			utils/ft_strchr.c \
 			utils/ft_strdup.c \
 			utils/ft_strlen.c \
 			utils/ft_substr.c

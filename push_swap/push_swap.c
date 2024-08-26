@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:06:10 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/25 13:47:05 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/26 14:24:54 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,14 @@ int	initialize_stack(int argc, char **argv, t_list **stack_a, t_list **stack_b)
 	return (success);
 }
 
-void	assign_indices(t_list *stack)
+int	assign_indices(t_list *stack)
 {
 	t_list	*current;
 	t_list	*compare;
 	int		index;
+	int		max_index;
 
+	max_index = 0;
 	current = stack;
 	while (current)
 	{
@@ -75,8 +77,11 @@ void	assign_indices(t_list *stack)
 			compare = compare->next;
 		}
 		current->index = index;
+		if (index > max_index)
+			max_index = index;
 		current = current->next;
 	}
+	return (max_index);
 }
 
 int	main(int argc, char **argv)
