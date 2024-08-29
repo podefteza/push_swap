@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:12:43 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/07/29 11:19:23 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/29 09:12:53 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,4 @@ void	rb(t_list **stack)
 		first->next = NULL;
 		write(1, "rb\n", 3);
 	}
-}
-
-// rr : ra and rb at the same time.
-// this function is implemented but is never used by the algorithm.
-void	rr(t_list **stack_a, t_list **stack_b)
-{
-	ra(stack_a);
-	rb(stack_b);
-	write(1, "rr\n", 3);
 }

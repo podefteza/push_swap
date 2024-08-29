@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:12:45 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/07/29 11:20:54 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/29 09:13:16 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,4 @@ void	sb(t_list **stack)
 		*stack = second;
 		write(1, "sb\n", 3);
 	}
-}
-
-// ss : sa and sb at the same time.
-// this function is implemented but is never used by the algorithm.
-void	ss(t_list **stack_a, t_list **stack_b)
-{
-	sa(stack_a);
-	sb(stack_b);
-	write(1, "ss\n", 3);
 }

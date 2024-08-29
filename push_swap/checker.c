@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:31:48 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/29 08:30:39 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:01:53 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,16 @@ int	checker(char *arg)
 	has_digit = 0;
 	while (arg[i] == ' ' || arg[i] == '\t')
 		i++;
-	if (arg[i] == '\0')
+	if (arg[i] == '\0' || ((arg[i] == '+' || arg[i] == '-')
+			&& (arg[i + 1] == '\0' || !ft_isdigit(arg[++i]))))
 		return (0);
-	if (arg[i] == '+' || arg[i] == '-')
-	{
-		if (arg[i + 1] == '\0' || !ft_isdigit(arg[i + 1]))
-			return (0);
-		i++;
-	}
 	while (arg[i] != '\0')
 	{
 		if (ft_isdigit(arg[i]))
 			has_digit = 1;
-		else if (arg[i] == '+' || arg[i] == '-')
-		{
-			if (arg[i - 1] != ' ' && arg[i - 1] != '\t')
-				return (0);
-			if (arg[i + 1] == '\0' || !ft_isdigit(arg[i + 1]))
-				return (0);
-		}
+		else if ((arg[i] == '+' || arg[i] == '-') && (!ft_isdigit(arg[i + 1])
+				|| (arg[i - 1] != ' ' && arg[i - 1] != '\t')))
+			return (0);
 		else if (arg[i] != ' ' && arg[i] != '\t')
 			return (0);
 		i++;
@@ -72,6 +63,7 @@ int	is_sorted(t_list **stack)
 	return (1);
 }
 
+/* Checks if the list is in descending order. If so, returns 1. */
 int	is_descending(t_list **stack)
 {
 	t_list	*head;
