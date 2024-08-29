@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:05:59 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/26 13:32:36 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/28 10:11:40 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int					handle_single_argument(char *arg, t_list **stack_a,
 						t_list **stack_b);
 int					handle_multiple_arguments(int argc, char **argv,
 						t_list **stack_a, t_list **stack_b);
-int					ft_atoi(const char *nptr);
+long long			ft_atoi(const char *nptr);
 int					ft_isdigit(int c);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 t_list				*ft_lstlast(t_list *lst);
@@ -63,6 +63,5 @@ void				rrr(t_list **stack_a, t_list **stack_b);
 void				sa(t_list **stack);
 void				sb(t_list **stack);
 void				ss(t_list **stack_a, t_list **stack_b);
-void				print_stack(t_list *stack);
 
 #endif

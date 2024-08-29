@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:31:48 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/21 13:51:42 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/29 08:30:39 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,23 @@ int	checker(char *arg)
 		i++;
 	if (arg[i] == '\0')
 		return (0);
+	if (arg[i] == '+' || arg[i] == '-')
+	{
+		if (arg[i + 1] == '\0' || !ft_isdigit(arg[i + 1]))
+			return (0);
+		i++;
+	}
 	while (arg[i] != '\0')
 	{
-		if (arg[i] == '+' || arg[i] == '-')
+		if (ft_isdigit(arg[i]))
+			has_digit = 1;
+		else if (arg[i] == '+' || arg[i] == '-')
 		{
-			if (i > 0 && (arg[i - 1] != ' ' && arg[i - 1] != '\t'))
+			if (arg[i - 1] != ' ' && arg[i - 1] != '\t')
 				return (0);
 			if (arg[i + 1] == '\0' || !ft_isdigit(arg[i + 1]))
 				return (0);
 		}
-		else if (ft_isdigit(arg[i]))
-			has_digit = 1;
 		else if (arg[i] != ' ' && arg[i] != '\t')
 			return (0);
 		i++;

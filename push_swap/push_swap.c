@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:06:10 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/26 14:24:54 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/29 08:30:34 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,62 @@
 int	handle_args_allocation(int argc, char **argv, t_list **stack_a,
 		t_list **stack_b)
 {
-	char	**stack;
+	char	**split_args;
+	int		total_numbers;
 	int		i;
+	int		j;
 	int		success;
+	char	**stack;
 
-	stack = malloc((argc + 1) * sizeof(char *));
+	total_numbers = 0;
+	i = 1;
+	while (i < argc)
+	{
+		split_args = ft_split(argv[i], ' ');
+		j = 0;
+		while (split_args[j] != NULL)
+		{
+			total_numbers++;
+			j++;
+		}
+		free_args(split_args);
+		i++;
+	}
+	stack = malloc((total_numbers + 1) * sizeof(char *));
 	if (!stack)
 	{
 		error(stack_a, stack_b, NULL);
 		return (0);
 	}
 	i = 1;
+	total_numbers = 0;
 	while (i < argc)
 	{
-		if (!checker(argv[i]))
+		split_args = ft_split(argv[i], ' ');
+		j = 0;
+		while (split_args[j] != NULL)
 		{
-			free_args(stack);
-			error(stack_a, stack_b, NULL);
+			if (!checker(split_args[j]))
+			{
+				free_args(stack);
+				free_args(split_args);
+				error(stack_a, stack_b, NULL);
+			}
+			stack[total_numbers] = ft_strdup(split_args[j]);
+			total_numbers++;
+			j++;
 		}
-		stack[i - 1] = ft_strdup(argv[i]);
+		free_args(split_args);
 		i++;
 	}
-	stack[argc - 1] = NULL;
-	success = handle_multiple_arguments(argc, argv, stack_a, stack_b);
+	stack[total_numbers] = NULL;
+	success = handle_multiple_arguments(total_numbers, stack, stack_a, stack_b);
 	free_args(stack);
 	return (success);
 }
 
-int	initialize_stack(int argc, char **argv, t_list **stack_a, t_list **stack_b)
+long	initialize_stack(int argc, char **argv, t_list **stack_a,
+		t_list **stack_b)
 {
 	int	success;
 
@@ -53,7 +81,14 @@ int	initialize_stack(int argc, char **argv, t_list **stack_a, t_list **stack_b)
 		success = handle_single_argument(argv[1], stack_a, stack_b);
 	}
 	else
+	{
+		for (int i = 1; i < argc; i++)
+		{
+			if (!checker(argv[i]))
+				error(stack_a, stack_b, NULL);
+		}
 		success = handle_args_allocation(argc, argv, stack_a, stack_b);
+	}
 	return (success);
 }
 
@@ -83,6 +118,16 @@ int	assign_indices(t_list *stack)
 	}
 	return (max_index);
 }
+// DELETE LATER!!
+void	print_stack(t_list *stack)
+{
+	while (stack)
+	{
+		printf("%d ", stack->content);
+		stack = stack->next;
+	}
+	printf("\n");
+}
 
 int	main(int argc, char **argv)
 {
@@ -97,6 +142,7 @@ int	main(int argc, char **argv)
 	success = initialize_stack(argc, argv, &stack_a, &stack_b);
 	if (!success || has_duplicates(stack_a))
 		error(&stack_a, &stack_b, NULL);
+	// print_stack(stack_a);
 	assign_indices(stack_a);
 	if (is_sorted(&stack_a) == 1)
 	{
@@ -107,6 +153,7 @@ int	main(int argc, char **argv)
 		small_sort(&stack_a, &stack_b);
 	else
 		sort(&stack_a, &stack_b);
+	// print_stack(stack_a);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);

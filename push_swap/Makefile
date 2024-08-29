@@ -15,7 +15,6 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = push_swap.c \
 		checker.c \
-		print_stack.c \
 		exit.c \
 		small_stack.c \
 		split_args.c \
@@ -59,4 +58,3 @@ re: fclean all
 	@echo "Recompiled all files."
 
 .PHONY: all clean fclean re
-

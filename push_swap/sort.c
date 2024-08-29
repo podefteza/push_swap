@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:14:38 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/26 12:08:12 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/08/28 08:08:41 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	radix_sort(t_list **stack_a, t_list **stack_b, int i)
 			(those with 0 in the i-th bit) are moved back to stack_a (pa).
 	This process is repeated for each bit position, from the least significant
 		to the most significant bit, until stack_a is fully sorted. */
-/* explanation of the algorithm: https://tinyurl.com/carlos-j-push-swap */
+/* explanation of the algorithm: tinyurl.com/carlos-j-push-swap */
 void	sort(t_list **stack_a, t_list **stack_b)
 {
 	int	max_bits;
