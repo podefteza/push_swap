@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /* Finds the position of a given value in the stack.
 	Returns the position if found, otherwise returns -1. */

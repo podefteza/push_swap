@@ -6,11 +6,39 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:14:38 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/28 08:08:41 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/09/04 10:12:20 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
+
+/* Assigns a ranking index to each element in the list based on its value */
+int	assign_indices(t_list *stack)
+{
+	t_list	*current;
+	t_list	*compare;
+	int		index;
+	int		max_index;
+
+	max_index = 0;
+	current = stack;
+	while (current)
+	{
+		index = 0;
+		compare = stack;
+		while (compare)
+		{
+			if (current->content > compare->content)
+				index++;
+			compare = compare->next;
+		}
+		current->index = index;
+		if (index > max_index)
+			max_index = index;
+		current = current->next;
+	}
+	return (max_index);
+}
 
 /* Processes each bit level and optimizes movements */
 static void	radix_sort(t_list **stack_a, t_list **stack_b, int i)

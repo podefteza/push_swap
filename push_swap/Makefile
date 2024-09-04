@@ -14,27 +14,27 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = push_swap.c \
-		checker.c \
-		exit.c \
-		small_stack.c \
-		split_args.c \
-		min_max.c \
-		sort.c \
-			operations/push.c \
-			operations/reverse_rotate.c \
-			operations/rotate.c \
-			operations/swap.c \
-			utils/ft_atoi.c \
-			utils/ft_isdigit.c \
-			utils/ft_lstadd_back.c \
-			utils/ft_lstnew.c \
-			utils/ft_lstlast.c \
-			utils/ft_lstsize.c \
-			utils/ft_split.c \
-			utils/ft_strchr.c \
-			utils/ft_strdup.c \
-			utils/ft_strlen.c \
-			utils/ft_substr.c
+		utils/checker.c \
+		utils/exit.c \
+		utils/min_max.c \
+		utils/small_stack.c \
+		utils/sort.c \
+		utils/split_args.c \
+		operations/push.c \
+		operations/reverse_rotate.c \
+		operations/rotate.c \
+		operations/swap.c \
+		libft/ft_atoi.c \
+		libft/ft_isdigit.c \
+		libft/ft_lstadd_back.c \
+		libft/ft_lstlast.c \
+		libft/ft_lstnew.c \
+		libft/ft_lstsize.c \
+		libft/ft_split.c \
+		libft/ft_strchr.c \
+		libft/ft_strdup.c \
+		libft/ft_strlen.c \
+		libft/ft_substr.c
 
 OBJS = ${SRCS:.c=.o}
 

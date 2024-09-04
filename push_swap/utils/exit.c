@@ -6,11 +6,11 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:13:10 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/08/29 09:14:03 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/09/04 09:40:34 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /* Frees both stacks and any allocated arguments, then prints an error message
 	to the standard error (2-stderr) and exits the program with a
