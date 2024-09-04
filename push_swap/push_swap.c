@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:06:10 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/09/04 09:55:44 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/09/04 11:26:20 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 	success = initialize_stack(argc, argv, &stack_a, &stack_b);
 	if (!success || has_duplicates(stack_a) || stack_a == NULL)
 		error(&stack_a, &stack_b, NULL);
-	if (is_sorted(&stack_a) == 1)
+	if (is_sorted(&stack_a))
 	{
 		free_stack(&stack_a);
 		return (0);

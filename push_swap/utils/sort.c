@@ -6,13 +6,13 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:14:38 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/09/04 10:12:20 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/09/04 12:34:55 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/* Assigns a ranking index to each element in the list based on its value */
+/* Assigns a ranking index to each element in the list based on its value. */
 int	assign_indices(t_list *stack)
 {
 	t_list	*current;
@@ -40,7 +40,12 @@ int	assign_indices(t_list *stack)
 	return (max_index);
 }
 
-/* Processes each bit level and optimizes movements */
+/* Processes elements based on the i-th bit of their index.
+	For each element in stack_a:
+	- Shifts the bits of the element's index i positions to the right;
+	- Isolates the least significant bit (LSB) using & 1.
+	If the LSB is 1, ra; otherwise, pb.
+	After processing all elements, pa. */
 static void	radix_sort(t_list **stack_a, t_list **stack_b, int i)
 {
 	int	size;
@@ -68,22 +73,10 @@ static void	radix_sort(t_list **stack_a, t_list **stack_b, int i)
 		pa(stack_a, stack_b);
 }
 
-/* Sorts the stack based on the indices previously assigned to the elements,
-		rather than their original values.
-	This function implements a radix sort algorithm, processing one bit at a
-		time, starting from the least significant bit.
-	For each bit position (from 0 to max_bits - 1):
-		1. Iterates through all elements in stack_a.
-		2. Checks the i-th bit of the index:
-			If the bit is 1,
-				the element is rotated to the bottom of stack_a (ra)
-			If the bit is 0, the element is pushed to stack_b (pb)
-		3. After processing all elements for the current bit,
-			elements in stack_b
-			(those with 0 in the i-th bit) are moved back to stack_a (pa).
-	This process is repeated for each bit position, from the least significant
-		to the most significant bit, until stack_a is fully sorted. */
-/* explanation of the algorithm: tinyurl.com/carlos-j-push-swap */
+/* 	Sorts the stack using radix sort based on the indices assigned.
+	First calculates the max_bits needed to represent the max_index;
+	Then calls radix_sort for each bit position from LSB to MSB.
+	>>>>>>>>>>>> explanation of the algorithm: tinyurl.com/carlos-j-push-swap */
 void	sort(t_list **stack_a, t_list **stack_b)
 {
 	int	max_bits;
