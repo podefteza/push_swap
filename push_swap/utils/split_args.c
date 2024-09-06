@@ -6,7 +6,7 @@
 /*   By: carlos-j <carlos-j@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:40:44 by carlos-j          #+#    #+#             */
-/*   Updated: 2024/09/04 09:31:02 by carlos-j         ###   ########.fr       */
+/*   Updated: 2024/09/06 12:05:35 by carlos-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,9 @@ int	process_arguments(char *arg, t_list **stack_a, t_list **stack_b)
 	while (split_args[i])
 	{
 		content = (long long *)malloc(sizeof(long long));
-		if (!content || !checker(split_args[i]))
-			error(stack_a, stack_b, split_args);
 		*content = ft_atoi(split_args[i]);
-		if (*content > INT_MAX || *content < INT_MIN)
+		if (!content || !checker(split_args[i]) || *content > INT_MAX
+			|| *content < INT_MIN)
 		{
 			free(content);
 			error(stack_a, stack_b, split_args);
