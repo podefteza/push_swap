@@ -1,6 +1,7 @@
 # push_swap - Because Swap_push isn’t as natural 🧮
 
 The goal of this project is to write a program in C called push_swap that sorts a list of integers using two stacks (a and b) and a set of specific operations. The goal is to find the smallest sequence of operations to sort the stack a.
+The radix sort algorithm is implemented to accomplish this efficiently. For a detailed explanation of the sorting process, see [this](https://docs.google.com/spreadsheets/d/1dm_v2G6j1xepuq3tnOlqQSN0md7m8lnzEpt59Klp-L0/edit). 
 
 📝 **Peer Evaluations:**
 
